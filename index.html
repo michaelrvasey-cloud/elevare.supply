@@ -68,7 +68,6 @@
         .hero-bg {
             background: linear-gradient(rgba(10, 13, 20, 0.75), rgba(10, 13, 20, 0.85)), 
                         url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
-            /* REPLACE WITH YOUR POSTER IMAGE: Elevare Supply poster.png hosted on your domain */
         }
 
         .nav-link {
@@ -130,6 +129,15 @@
             max-width: 1280px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        /* MOBILE FONT OPTIMISATION */
+        @media (max-width: 640px) {
+            h1 { font-size: 2.75rem !important; line-height: 1.05 !important; }
+            .hero-p { font-size: 1.25rem !important; line-height: 1.35 !important; }
+            h2 { font-size: 2.25rem !important; line-height: 1.1 !important; }
+            .card-title { font-size: 1.35rem !important; }
+            .process-step { font-size: 1.1rem !important; }
         }
     </style>
 </head>
@@ -193,11 +201,11 @@
                     FOUNDER-LED • STRATEGIC • MARGIN-FIRST
                 </div>
                 
-                <h1 class="heading-font text-7xl md:text-8xl font-bold leading-none tracking-tighter text-white mb-6">
+                <h1 class="heading-font text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tighter text-white mb-6">
                     MARGIN.<br>ENGINEERED.
                 </h1>
                 
-                <p class="text-2xl md:text-3xl text-white/80 max-w-lg font-light leading-tight">
+                <p class="hero-p text-xl sm:text-2xl md:text-3xl text-white/80 max-w-lg font-light leading-tight">
                     We transform ordinary products into premium brand assets that drive higher pricing, stronger margins, and lasting supplier leverage.
                 </p>
                 
@@ -248,7 +256,7 @@
                 <div class="md:col-span-5">
                     <div class="sticky top-28">
                         <span class="text-[#d4af37] text-sm font-semibold tracking-[3px]">NOT JUST SOURCING</span>
-                        <h2 class="heading-font text-6xl font-semibold leading-none mt-3 mb-8">
+                        <h2 class="heading-font text-4xl sm:text-5xl md:text-6xl font-semibold leading-none mt-3 mb-8">
                             Strategic.<br>Not transactional.
                         </h2>
                         <p class="text-lg text-white/70 max-w-md">
@@ -290,35 +298,35 @@
         <div class="tail-container px-8">
             <div class="text-center mb-16">
                 <span class="text-[#d4af37] uppercase tracking-[4px] text-sm font-medium">THE ELEVARE METHOD</span>
-                <h2 class="heading-font text-6xl font-bold mt-4">Margin Engineering Model</h2>
+                <h2 class="heading-font text-4xl sm:text-5xl md:text-6xl font-bold mt-4">Margin Engineering Model</h2>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Card 1 -->
                 <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
                     <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">↑</div>
-                    <h3 class="text-2xl font-semibold mb-4">Perceived Value Uplift</h3>
+                    <h3 class="card-title text-2xl font-semibold mb-4">Perceived Value Uplift</h3>
                     <p class="text-white/70">Material upgrades and design refinement that justify premium retail pricing without losing demand.</p>
                 </div>
                 
                 <!-- Card 2 -->
                 <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
                     <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">⚙️</div>
-                    <h3 class="text-2xl font-semibold mb-4">Cost Structure Optimisation</h3>
+                    <h3 class="card-title text-2xl font-semibold mb-4">Cost Structure Optimisation</h3>
                     <p class="text-white/70">Factory alignment and negotiation intelligence that protect your gross margin at every step.</p>
                 </div>
                 
                 <!-- Card 3 -->
                 <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
                     <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">📦</div>
-                    <h3 class="text-2xl font-semibold mb-4">MOQ Risk Balancing</h3>
+                    <h3 class="card-title text-2xl font-semibold mb-4">MOQ Risk Balancing</h3>
                     <p class="text-white/70">Structured minimum orders and phased rollout plans that eliminate inventory risk.</p>
                 </div>
                 
                 <!-- Card 4 -->
                 <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
                     <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">🎁</div>
-                    <h3 class="text-2xl font-semibold mb-4">Premium Presentation Leverage</h3>
+                    <h3 class="card-title text-2xl font-semibold mb-4">Premium Presentation Leverage</h3>
                     <p class="text-white/70">Packaging and unboxing experiences that become profit multipliers and brand assets.</p>
                 </div>
             </div>
@@ -331,7 +339,7 @@
             <div class="grid md:grid-cols-12 gap-16">
                 <div class="md:col-span-5">
                     <span class="uppercase text-sm tracking-widest text-[#d4af37]">TARGETED FOR RECURRING SUCCESS</span>
-                    <h2 class="heading-font text-6xl font-bold mt-6 leading-none">Built for brands that reorder.</h2>
+                    <h2 class="heading-font text-4xl sm:text-5xl md:text-6xl font-bold mt-6 leading-none">Built for brands that reorder.</h2>
                     <p class="mt-8 text-lg text-white/70 max-w-sm">
                         We prioritise sectors with natural repeat cycles, subscription models, and seasonal collections.
                     </p>
@@ -370,7 +378,7 @@
         <div class="tail-container px-8">
             <div class="text-center mb-16">
                 <span class="text-[#d4af37] text-sm font-medium">END-TO-END PARTNERSHIP</span>
-                <h2 class="heading-font text-6xl font-bold mt-4">From Vision to Shelf</h2>
+                <h2 class="heading-font text-4xl sm:text-5xl md:text-6xl font-bold mt-4">From Vision to Shelf</h2>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -404,7 +412,7 @@
     <section id="process" class="py-32 bg-[#0a0d14]">
         <div class="tail-container px-8">
             <div class="max-w-2xl mx-auto text-center mb-20">
-                <h2 class="heading-font text-6xl font-bold">From Source To Shelf</h2>
+                <h2 class="heading-font text-4xl sm:text-5xl md:text-6xl font-bold">From Source To Shelf</h2>
                 <p class="mt-6 text-white/70 text-lg">A repeatable, founder-led process designed for recurring revenue and margin growth.</p>
             </div>
             
@@ -414,27 +422,27 @@
                 
                 <div class="text-center relative">
                     <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">1</div>
-                    <div class="font-semibold">Discovery &amp; Audit</div>
+                    <div class="process-step font-semibold">Discovery &amp; Audit</div>
                     <div class="text-xs text-white/50 mt-2">Current margins • product gaps • goals</div>
                 </div>
                 <div class="text-center relative">
                     <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">2</div>
-                    <div class="font-semibold">Factory Matching</div>
+                    <div class="process-step font-semibold">Factory Matching</div>
                     <div class="text-xs text-white/50 mt-2">Premium suppliers aligned to your brand DNA</div>
                 </div>
                 <div class="text-center relative">
                     <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">3</div>
-                    <div class="font-semibold">Engineering &amp; Samples</div>
+                    <div class="process-step font-semibold">Engineering &amp; Samples</div>
                     <div class="text-xs text-white/50 mt-2">Material &amp; packaging upgrades</div>
                 </div>
                 <div class="text-center relative">
                     <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">4</div>
-                    <div class="font-semibold">Negotiation &amp; MOQ</div>
+                    <div class="process-step font-semibold">Negotiation &amp; MOQ</div>
                     <div class="text-xs text-white/50 mt-2">Commercial terms locked for scale</div>
                 </div>
                 <div class="text-center relative">
                     <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">5</div>
-                    <div class="font-semibold">Launch &amp; Scale</div>
+                    <div class="process-step font-semibold">Launch &amp; Scale</div>
                     <div class="text-xs text-white/50 mt-2">Ongoing oversight • repeat orders</div>
                 </div>
             </div>
@@ -445,7 +453,7 @@
     <section class="py-32 bg-gradient-to-b from-black to-[#0a0d14]">
         <div class="tail-container px-8 text-center">
             <div class="max-w-xl mx-auto">
-                <h2 class="heading-font text-5xl font-bold mb-8">Ready to engineer your next level of margin?</h2>
+                <h2 class="heading-font text-4xl sm:text-5xl md:text-6xl font-bold mb-8">Ready to engineer your next level of margin?</h2>
                 <p class="text-xl text-white/70 mb-12">We only work with brands ready to move from good to exceptional. If that’s you — let’s talk.</p>
                 
                 <a href="mailto:contact@elevare.supplies" 
@@ -480,11 +488,6 @@
     </footer>
 
     <script>
-        // Tailwind script already loaded
-        function initTailwind() {
-            // No additional config needed for demo
-        }
-        
         // Mobile menu toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -533,19 +536,7 @@
         }
         
         window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', () => {
-            initTailwind();
-            revealOnScroll();
-        });
-        
-        // Keyboard accessibility
-        document.addEventListener('keydown', (e) => {
-            if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                const firstLink = document.querySelector('a[href="#model"]');
-                if (firstLink) firstLink.focus();
-            }
-        });
+        window.addEventListener('load', revealOnScroll);
     </script>
 </body>
 </html>
