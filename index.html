@@ -1,225 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elevare Supply | Margin. Engineered.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevare Supply | Margin. Engineered.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap');
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        :root {
+            --gold: #d4af37;
+        }
 
-<style>
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #0a0d14;
-  color: #e6e6e6;
-  overflow-x: hidden;
-}
+        /* LUXURY BACKGROUND GRID */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(212, 175, 55, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.06) 1px, transparent 1px);
+            background-size: 90px 90px;
+            animation: gridMove 60s linear infinite;
+            z-index: -3;
+            pointer-events: none;
+        }
 
-/* ANIMATED GLOBAL GRID */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  background-image: 
-    linear-gradient(rgba(212,175,55,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212,175,55,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
-  animation: gridMove 40s linear infinite;
-  z-index: -2;
-}
+        @keyframes gridMove {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-90px, -90px); }
+        }
 
-@keyframes gridMove {
-  from { transform: translate(0,0); }
-  to { transform: translate(-80px,-80px); }
-}
+        /* ROTATING GOLD LIGHT */
+        .light {
+            position: fixed;
+            top: -40%;
+            left: -40%;
+            width: 180%;
+            height: 180%;
+            background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            animation: rotateLight 90s linear infinite;
+            z-index: -2;
+            pointer-events: none;
+        }
 
-/* MOVING LIGHT GRADIENT */
-.light {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(212,175,55,0.08), transparent 60%);
-  animation: rotateLight 25s linear infinite;
-  z-index: -1;
-}
+        @keyframes rotateLight {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
-@keyframes rotateLight {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+        .hero-bg {
+            background: linear-gradient(rgba(10, 13, 20, 0.75), rgba(10, 13, 20, 0.85)), 
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            /* REPLACE WITH YOUR POSTER IMAGE: Elevare Supply poster.png hosted on your domain */
+        }
 
-/* HEADER */
-header {
-  position: fixed;
-  width: 100%;
-  padding: 30px 60px;
-  background: rgba(10,13,20,0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #d4af37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
 
-.logo {
-  color: #d4af37;
-  font-weight: 600;
-  letter-spacing: 3px;
-  font-size: 18px;
-}
+        .gold-button {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+        }
+        
+        .gold-button:hover {
+            background: #d4af37;
+            color: #0a0d14;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
 
-/* SECTIONS */
-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 900px;
-  margin: auto;
-  padding: 0 40px;
-}
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgb(212 175 55 / 0.2);
+        }
 
-/* TYPOGRAPHY */
-h1 {
-  font-size: 72px;
-  font-weight: 700;
-  color: #d4af37;
-  margin-bottom: 30px;
-}
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, #d4af37, transparent);
+            bottom: -8px;
+            left: 0;
+        }
 
-h2 {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #d4af37;
-}
-
-p {
-  font-size: 20px;
-  font-weight: 300;
-  color: #cfcfcf;
-  max-width: 700px;
-  line-height: 1.8;
-}
-
-/* BUTTON */
-.button {
-  margin-top: 40px;
-  padding: 14px 32px;
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  text-decoration: none;
-  width: fit-content;
-  transition: 0.3s ease;
-}
-
-.button:hover {
-  background: #d4af37;
-  color: #0a0d14;
-}
-
-/* SCROLL REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  h1 { font-size: 44px; }
-  h2 { font-size: 28px; }
-  p { font-size: 18px; }
-}
-
-</style>
+        .tail-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
+<body class="bg-[#0a0d14] text-[#e6e6e6] overflow-x-hidden">
+    <!-- LIGHT OVERLAY -->
+    <div class="light"></div>
 
-<body>
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0d14]/90 backdrop-blur-xl border-b border-white/10">
+        <div class="tail-container px-8 py-6 flex items-center justify-between">
+            <!-- LOGO -->
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-[#d4af37] rounded-full flex items-center justify-center text-[#0a0d14] text-2xl font-bold shadow-inner">ES</div>
+                <div>
+                    <span class="text-2xl font-semibold tracking-[3px] text-[#d4af37] heading-font">ELEVARE</span>
+                    <span class="text-2xl font-light tracking-widest text-white/80">SUPPLY</span>
+                </div>
+            </div>
 
-<div class="light"></div>
+            <!-- MENU -->
+            <div class="hidden md:flex items-center gap-x-10 text-sm font-medium">
+                <a href="#model" class="nav-link text-white/80 hover:text-[#d4af37]">MODEL</a>
+                <a href="#industries" class="nav-link text-white/80 hover:text-[#d4af37]">INDUSTRIES</a>
+                <a href="#deliver" class="nav-link text-white/80 hover:text-[#d4af37]">DELIVERABLES</a>
+                <a href="#process" class="nav-link text-white/80 hover:text-[#d4af37]">PROCESS</a>
+            </div>
 
-<header>
-  <div class="logo">ELEVARE SUPPLY</div>
-</header>
+            <div class="flex items-center gap-x-6">
+                <a href="mailto:contact@elevare.supplies" 
+                   class="gold-button text-sm font-semibold px-8 py-3.5 rounded-full flex items-center gap-x-2">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>STRATEGIC REVIEW</span>
+                </a>
+                
+                <!-- MOBILE HAMBURGER -->
+                <button id="mobile-menu-btn"
+                        class="md:hidden text-3xl text-[#d4af37]">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0a0d14] border-t border-white/10 py-6">
+            <div class="flex flex-col items-center gap-y-6 text-lg font-medium">
+                <a href="#model" class="hover:text-[#d4af37]">The Model</a>
+                <a href="#industries" class="hover:text-[#d4af37]">Industries</a>
+                <a href="#deliver" class="hover:text-[#d4af37]">What We Deliver</a>
+                <a href="#process" class="hover:text-[#d4af37]">From Source to Shelf</a>
+                <a href="mailto:contact@elevare.supplies" class="gold-button px-10 py-4 rounded-full text-base">Request Strategic Review</a>
+            </div>
+        </div>
+    </nav>
 
-<section>
-  <div class="reveal">
-    <h1>Margin. Engineered.</h1>
-    <p>
-      Strategic sourcing and premium product elevation for ambitious brands.
-    </p>
-    <a href="mailto:contact@elevare.supply" class="button">Request Strategic Review</a>
-  </div>
-</section>
+    <!-- HERO -->
+    <section class="hero-bg min-h-screen flex items-center relative">
+        <div class="tail-container px-8 pt-32 md:pt-40">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-x-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl text-sm font-medium mb-8">
+                    <div class="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse"></div>
+                    FOUNDER-LED • STRATEGIC • MARGIN-FIRST
+                </div>
+                
+                <h1 class="heading-font text-7xl md:text-8xl font-bold leading-none tracking-tighter text-white mb-6">
+                    MARGIN.<br>ENGINEERED.
+                </h1>
+                
+                <p class="text-2xl md:text-3xl text-white/80 max-w-lg font-light leading-tight">
+                    We transform ordinary products into premium brand assets that drive higher pricing, stronger margins, and lasting supplier leverage.
+                </p>
+                
+                <div class="mt-12 flex flex-wrap gap-6">
+                    <a href="#model" 
+                       class="gold-button text-lg font-semibold px-12 py-6 rounded-2xl flex items-center gap-x-4 group">
+                        EXPLORE THE MODEL
+                        <span class="group-hover:translate-x-2 inline-block">→</span>
+                    </a>
+                    
+                    <a href="mailto:contact@elevare.supplies" 
+                       class="border border-white/40 hover:border-white/80 text-white px-12 py-6 rounded-2xl text-lg font-medium flex items-center">
+                        BOOK A STRATEGIC CALL
+                    </a>
+                </div>
+                
+                <div class="mt-16 flex items-center gap-x-12 text-xs uppercase tracking-[2px] text-white/50">
+                    <div>£1M – £20M BRANDS</div>
+                    <div>PREMIUM • RECURRING • SCALABLE</div>
+                </div>
+            </div>
+        </div>
 
-<section>
-  <div class="reveal">
-    <h2>Strategic, Not Transactional</h2>
-    <p>
-      Elevare Supply partners with £1M–£20M revenue brands seeking structured margin expansion.
-      We engineer material upgrades, optimise cost architecture and align with factories built for long-term commercial leverage.
-    </p>
-  </div>
-</section>
+        <!-- SCROLL INDICATOR -->
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center gap-y-2 text-xs tracking-widest text-white/40">
+            <div>SCROLL TO DISCOVER</div>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
+        </div>
 
-<section>
-  <div class="reveal">
-    <h2>The Margin Engineering Model</h2>
-    <p>
-      Perceived value uplift.  
-      Cost structure optimisation.  
-      MOQ risk balancing.  
-      Premium presentation leverage.
-    </p>
-  </div>
-</section>
+        <!-- TRUST BAR -->
+        <div class="absolute bottom-8 right-8 hidden lg:flex items-center gap-x-8 text-xs font-medium text-white/40">
+            <div class="flex items-center gap-x-3">
+                <i class="fa-solid fa-check"></i>
+                <span>STRATEGIC PARTNER</span>
+            </div>
+            <div class="h-3 w-px bg-white/20"></div>
+            <div class="flex items-center gap-x-3">
+                <i class="fa-solid fa-check"></i>
+                <span>NOT TRANSACTIONAL</span>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <div class="reveal">
-    <h2>From Source To Shelf</h2>
-    <p>
-      Factory alignment. Commercial negotiation. Production oversight.
-      Packaging optimisation. Logistics planning.
-    </p>
-    <a href="mailto:contact@elevare.supply" class="button">Book Strategic Call</a>
-  </div>
-</section>
+    <!-- STRATEGIC PARTNER SECTION -->
+    <section class="py-32 bg-[#0a0d14]">
+        <div class="tail-container px-8">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="sticky top-28">
+                        <span class="text-[#d4af37] text-sm font-semibold tracking-[3px]">NOT JUST SOURCING</span>
+                        <h2 class="heading-font text-6xl font-semibold leading-none mt-3 mb-8">
+                            Strategic.<br>Not transactional.
+                        </h2>
+                        <p class="text-lg text-white/70 max-w-md">
+                            We partner exclusively with ambitious £1M–£20M brands that want to engineer sustainable margin expansion through premium elevation — not chase the lowest price.
+                        </p>
+                        <a href="mailto:contact@elevare.supplies" class="mt-10 inline-flex items-center gap-x-3 text-[#d4af37] font-medium">
+                            START YOUR MARGIN TRANSFORMATION 
+                            <span class="text-2xl">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7 space-y-8">
+                    <div class="bg-[#11151f] border border-white/10 p-10 rounded-3xl">
+                        <div class="flex items-start gap-6">
+                            <div class="text-5xl text-[#d4af37]">01</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-3">Perceived Value Uplift</h3>
+                                <p class="text-white/70">We upgrade materials, finishes, and presentation so your customers willingly pay 30–70% more.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#11151f] border border-white/10 p-10 rounded-3xl">
+                        <div class="flex items-start gap-6">
+                            <div class="text-5xl text-[#d4af37]">02</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-3">Cost Structure Optimisation</h3>
+                                <p class="text-white/70">We negotiate factory terms that protect your margins while delivering premium quality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
+    <!-- THE MARGIN ENGINEERING MODEL -->
+    <section id="model" class="py-32 bg-black">
+        <div class="tail-container px-8">
+            <div class="text-center mb-16">
+                <span class="text-[#d4af37] uppercase tracking-[4px] text-sm font-medium">THE ELEVARE METHOD</span>
+                <h2 class="heading-font text-6xl font-bold mt-4">Margin Engineering Model</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
+                    <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">↑</div>
+                    <h3 class="text-2xl font-semibold mb-4">Perceived Value Uplift</h3>
+                    <p class="text-white/70">Material upgrades and design refinement that justify premium retail pricing without losing demand.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
+                    <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">⚙️</div>
+                    <h3 class="text-2xl font-semibold mb-4">Cost Structure Optimisation</h3>
+                    <p class="text-white/70">Factory alignment and negotiation intelligence that protect your gross margin at every step.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
+                    <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">📦</div>
+                    <h3 class="text-2xl font-semibold mb-4">MOQ Risk Balancing</h3>
+                    <p class="text-white/70">Structured minimum orders and phased rollout plans that eliminate inventory risk.</p>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="card-hover bg-[#11151f] border border-white/10 rounded-3xl p-10 group">
+                    <div class="text-[#d4af37] text-6xl mb-6 group-hover:rotate-12">🎁</div>
+                    <h3 class="text-2xl font-semibold mb-4">Premium Presentation Leverage</h3>
+                    <p class="text-white/70">Packaging and unboxing experiences that become profit multipliers and brand assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* SCROLL REVEAL SCRIPT */
+    <!-- INDUSTRIES -->
+    <section id="industries" class="py-32 bg-[#0a0d14]">
+        <div class="tail-container px-8">
+            <div class="grid md:grid-cols-12 gap-16">
+                <div class="md:col-span-5">
+                    <span class="uppercase text-sm tracking-widest text-[#d4af37]">TARGETED FOR RECURRING SUCCESS</span>
+                    <h2 class="heading-font text-6xl font-bold mt-6 leading-none">Built for brands that reorder.</h2>
+                    <p class="mt-8 text-lg text-white/70 max-w-sm">
+                        We prioritise sectors with natural repeat cycles, subscription models, and seasonal collections.
+                    </p>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-[#11151f] p-8 rounded-3xl border border-white/10">
+                            <div class="text-4xl mb-4">☕</div>
+                            <div class="font-semibold text-xl">Coffee &amp; Specialty Beverage</div>
+                            <div class="text-sm text-white/60 mt-1">Premium packaging • consumables • gifting</div>
+                        </div>
+                        <div class="bg-[#11151f] p-8 rounded-3xl border border-white/10">
+                            <div class="text-4xl mb-4">🏨</div>
+                            <div class="font-semibold text-xl">Hospitality &amp; Hotels</div>
+                            <div class="text-sm text-white/60 mt-1">Amenities • branded merchandise • seasonal</div>
+                        </div>
+                        <div class="bg-[#11151f] p-8 rounded-3xl border border-white/10">
+                            <div class="text-4xl mb-4">🎁</div>
+                            <div class="font-semibold text-xl">Corporate Gifting</div>
+                            <div class="text-sm text-white/60 mt-1">Executive collections • client retention</div>
+                        </div>
+                        <div class="bg-[#11151f] p-8 rounded-3xl border border-white/10">
+                            <div class="text-4xl mb-4">🛍️</div>
+                            <div class="font-semibold text-xl">Boutique Retail &amp; Merch</div>
+                            <div class="text-sm text-white/60 mt-1">Limited editions • own-brand lines</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-function revealOnScroll() {
-  const reveals = document.querySelectorAll(".reveal");
+    <!-- WHAT WE DELIVER -->
+    <section id="deliver" class="py-32 bg-black">
+        <div class="tail-container px-8">
+            <div class="text-center mb-16">
+                <span class="text-[#d4af37] text-sm font-medium">END-TO-END PARTNERSHIP</span>
+                <h2 class="heading-font text-6xl font-bold mt-4">From Vision to Shelf</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 border border-white/10 rounded-3xl">
+                    <i class="fa-solid fa-road text-4xl text-[#d4af37] mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Strategic Roadmaps</h3>
+                    <p class="text-white/70">Bespoke 12–36 month sourcing and elevation plans aligned to your growth targets.</p>
+                </div>
+                <div class="p-8 border border-white/10 rounded-3xl">
+                    <i class="fa-solid fa-handshake text-4xl text-[#d4af37] mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Factory Negotiation &amp; Alignment</h3>
+                    <p class="text-white/70">Access to premium, long-term partners who understand brand value — not just price.</p>
+                </div>
+                <div class="p-8 border border-white/10 rounded-3xl">
+                    <i class="fa-solid fa-boxes-packing text-4xl text-[#d4af37] mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Packaging as Profit Lever</h3>
+                    <p class="text-white/70">Designs and materials that turn every unboxing into a brand experience that justifies higher pricing.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="mailto:contact@elevare.supplies" class="inline-flex items-center text-[#d4af37] text-lg font-medium gap-x-3">
+                    SEE THE FULL DELIVERABLES LIST 
+                    <span class="text-3xl leading-none">↓</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-  reveals.forEach(element => {
-    const windowHeight = window.innerHeight;
-    const elementTop = element.getBoundingClientRect().top;
-    const revealPoint = 150;
+    <!-- PROCESS -->
+    <section id="process" class="py-32 bg-[#0a0d14]">
+        <div class="tail-container px-8">
+            <div class="max-w-2xl mx-auto text-center mb-20">
+                <h2 class="heading-font text-6xl font-bold">From Source To Shelf</h2>
+                <p class="mt-6 text-white/70 text-lg">A repeatable, founder-led process designed for recurring revenue and margin growth.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-5 gap-8 relative">
+                <!-- Connecting line -->
+                <div class="hidden md:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent"></div>
+                
+                <div class="text-center relative">
+                    <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">1</div>
+                    <div class="font-semibold">Discovery &amp; Audit</div>
+                    <div class="text-xs text-white/50 mt-2">Current margins • product gaps • goals</div>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">2</div>
+                    <div class="font-semibold">Factory Matching</div>
+                    <div class="text-xs text-white/50 mt-2">Premium suppliers aligned to your brand DNA</div>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">3</div>
+                    <div class="font-semibold">Engineering &amp; Samples</div>
+                    <div class="text-xs text-white/50 mt-2">Material &amp; packaging upgrades</div>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">4</div>
+                    <div class="font-semibold">Negotiation &amp; MOQ</div>
+                    <div class="text-xs text-white/50 mt-2">Commercial terms locked for scale</div>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-12 h-12 mx-auto bg-[#d4af37] text-[#0a0d14] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">5</div>
+                    <div class="font-semibold">Launch &amp; Scale</div>
+                    <div class="text-xs text-white/50 mt-2">Ongoing oversight • repeat orders</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    if (elementTop < windowHeight - revealPoint) {
-      element.classList.add("active");
-    }
-  });
-}
+    <!-- FINAL CTA -->
+    <section class="py-32 bg-gradient-to-b from-black to-[#0a0d14]">
+        <div class="tail-container px-8 text-center">
+            <div class="max-w-xl mx-auto">
+                <h2 class="heading-font text-5xl font-bold mb-8">Ready to engineer your next level of margin?</h2>
+                <p class="text-xl text-white/70 mb-12">We only work with brands ready to move from good to exceptional. If that’s you — let’s talk.</p>
+                
+                <a href="mailto:contact@elevare.supplies" 
+                   class="gold-button inline-flex text-2xl font-semibold px-16 py-8 rounded-3xl items-center gap-x-6 group">
+                    REQUEST YOUR STRATEGIC REVIEW
+                    <span class="group-hover:rotate-45 text-3xl">↗</span>
+                </a>
+                
+                <div class="mt-10 text-xs tracking-widest text-white/40">DOMAIN: ELEVARE.SUPPLIES • FOUNDER-LED EXECUTION</div>
+            </div>
+        </div>
+    </section>
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+    <!-- FOOTER -->
+    <footer class="bg-black py-20 border-t border-white/10">
+        <div class="tail-container px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-y-10">
+                <div>
+                    <div class="flex items-center gap-x-3 mb-4">
+                        <div class="w-7 h-7 bg-[#d4af37] rounded-xl flex items-center justify-center text-[#0a0d14] text-xl font-black">ES</div>
+                        <span class="text-2xl tracking-widest text-white/90">ELEVARE SUPPLY</span>
+                    </div>
+                    <p class="text-white/40 text-sm">Margin. Engineered.<br>Premium product elevation for ambitious brands.</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <a href="mailto:contact@elevare.supplies" class="block text-[#d4af37] text-lg font-medium hover:text-white">contact@elevare.supplies</a>
+                    <div class="text-xs text-white/30 mt-8">© 2026 Elevare Supply Ltd. All rights reserved.<br>Strategic sourcing partner, not a transactional agent.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-</script>
-
+    <script>
+        // Tailwind script already loaded
+        function initTailwind() {
+            // No additional config needed for demo
+        }
+        
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Scroll reveal effect
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.card-hover, section');
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', () => {
+            initTailwind();
+            revealOnScroll();
+        });
+        
+        // Keyboard accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                const firstLink = document.querySelector('a[href="#model"]');
+                if (firstLink) firstLink.focus();
+            }
+        });
+    </script>
 </body>
 </html>
