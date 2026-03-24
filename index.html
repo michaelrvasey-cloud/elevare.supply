@@ -77,8 +77,8 @@
         }
 
         .hero-bg {
-            background: linear-gradient(rgba(10, 13, 20, 0.75), rgba(10, 13, 20, 0.85)), 
-                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            background: linear-gradient(rgba(10, 13, 20, 0.60), rgba(10, 13, 20, 0.85)), 
+                        url('https://img.freepik.com/premium-photo/illuminated-world-map-illustrating-global-trade-routes-shipping-networks-concept-world-trade-routes-maritime-shipping-global-trade-networks-illuminated-map-illustrations_864588-41140.jpg') center/cover no-repeat;
         }
 
         .nav-link {
@@ -149,8 +149,68 @@
             h2 { font-size: 2.25rem !important; line-height: 1.1 !important; }
             .card-title { font-size: 1.35rem !important; }
             .process-step { font-size: 1.1rem !important; }
+
         }
-    </style>
+
+/* === ELEVARE 3D + ANIMATIONS UPGRADE === */
+
+/* 3D base for cards */
+.card-hover {
+    perspective: 1200px;
+}
+
+/* Scroll reveals */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button shine sweep */
+.gold-button {
+    position: relative;
+    overflow: hidden;
+}
+.gold-button::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -150%;
+    width: 40%;
+    height: 300%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: left 0.7s ease;
+}
+.gold-button:hover::after {
+    left: 200%;
+}
+
+/* Seamless floating gold particles */
+@keyframes floatParticle {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0.18; }
+    100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
+}
+.floating-particle {
+    position: fixed;
+    background: #d4af37;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Extra 3D pop on headings */
+.heading-font {
+    text-shadow: 
+        0 4px 30px rgba(212, 175, 55, 0.35),
+        3px 3px 0 #0a0d14,
+        -2px -2px 0 #0a0d14;
+}
+   
+ </style>
     <!-- HIDDEN SEO SCHEMA (Google reads this but visitors never see it) -->
     <script type="application/ld+json">
     {
